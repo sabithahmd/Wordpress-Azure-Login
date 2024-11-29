@@ -1,4 +1,4 @@
-=== WordPress Azure Login ===
+=== Azure Login ===
 
 Contributors: sabithahmd
 Tags: azure, login, sso, authentication

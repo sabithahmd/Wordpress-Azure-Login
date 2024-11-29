@@ -1,16 +1,14 @@
 <?php
 /**
- * Plugin Name: WordPress Azure Login
- * Plugin URI: https://github.com/sabithahmd
+ * Plugin Name: Azure Login
+ * Plugin URI: http://wordpress.org/plugins/azure-login/
  * Description: Plugin to integrate azure AD Login with WordPress.
  * Author: Sabith Ahammad
  * Author URI: https://github.com/sabithahmd
- * Text Domain: wp-azure-login
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
- * @package wp-azure-login
- * Domain Path: /languages/
+ * @package azure-login
  * Version: 1.0.4
  */
 
