@@ -6,6 +6,8 @@
  *
  * @package    wp-azure-login
  * @author     Sabith Ahammad <sa.codinglife@gmail.com>
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
 if ( ! class_exists( 'settingspage' ) ) :

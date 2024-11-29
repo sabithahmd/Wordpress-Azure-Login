@@ -6,6 +6,8 @@
  * Author: Sabith Ahammad
  * Author URI: https://github.com/sabithahmd
  * Text Domain: wp-azure-login
+ * License: GPLv2 or later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package wp-azure-login
  * Domain Path: /languages/
