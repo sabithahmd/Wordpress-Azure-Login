@@ -14,6 +14,6 @@
 require_once WP_AZURE_LOGIN_DIR . '/wp_azure_login.php';
 
 $azure_login      = WpAzureLogin::get_instance();
-$azure_login_link = $azure_login->get_auth_url();
+$azure_login_link = $azure_login->azure_service->get_auth_url();
 wp_safe_redirect( $azure_login_link );
 exit;

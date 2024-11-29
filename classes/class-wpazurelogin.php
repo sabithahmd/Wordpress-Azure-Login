@@ -33,7 +33,7 @@ class WpAzureLogin {
 	 *
 	 * @var WalAzureService
 	 */
-	private $azure_service;
+	public $azure_service;
 
 
 	/**
