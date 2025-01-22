@@ -1,4 +1,4 @@
-# WordPress Azure Login Plugin
+# WordPress Login with Azure Plugin
 
 A lightweight WordPress plugin that enables secure Single Sign-On (SSO) with Azure Active Directory. Users can log in to your WordPress site using their Azure AD credentials for seamless and secure authentication.
 

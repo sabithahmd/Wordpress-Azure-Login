@@ -1,4 +1,4 @@
-=== Azure Login ===
+=== Login with Azure ===
 
 Contributors: sabithahmd
 Tags: azure, login, sso, authentication
@@ -12,7 +12,7 @@ A lightweight plugin to enable secure Single Sign-On (SSO) with Azure Active Dir
 
 == Description ==
 
-Azure AD Login simplifies the process of integrating Microsoft Azure Active Directory (Azure AD) with your WordPress site. This plugin enables secure Single Sign-On (SSO), allowing users to log in with their Azure AD credentials.
+Login with Azure simplifies the process of integrating Microsoft Azure Active Directory (Azure AD) with your WordPress site. This plugin enables secure Single Sign-On (SSO), allowing users to log in with their Azure AD credentials.
 
 Key Features
 

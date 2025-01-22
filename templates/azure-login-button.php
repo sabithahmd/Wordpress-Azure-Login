@@ -4,7 +4,7 @@
  *
  * This file contains the HTML template for the Azure login button.
  *
- * @package azure-login
+ * @package login-azure
  * @author Sabith Ahammad
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html

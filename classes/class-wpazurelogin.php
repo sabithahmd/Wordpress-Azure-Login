@@ -4,7 +4,7 @@
  *
  * File containing the WpAzureLogin class.
  *
- * @package    azure-login
+ * @package    login-azure
  * @author     Sabith Ahammad <sa.codinglife@gmail.com>
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html

@@ -4,7 +4,7 @@
  *
  * This file contains login template which redirects to the Azure login page.
  *
- * @package azure-login
+ * @package login-azure
  * @author Sabith Ahammad
  * License: GPLv2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
