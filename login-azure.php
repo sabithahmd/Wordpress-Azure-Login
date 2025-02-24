@@ -18,7 +18,7 @@ require_once __DIR__ . '/classes/class-wpazurelogin.php';
 require_once __DIR__ . '/classes/class-walazureservice.php';
 require_once __DIR__ . '/classes/class-settingspage.php';
 
-$plugin_data = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
+$plugin_data    = get_file_data( __FILE__, array( 'Version' => 'Version' ) );
 $plugin_version = $plugin_data['Version'];
 
 define( 'WP_AZURE_LOGIN_DIR', __DIR__ );
