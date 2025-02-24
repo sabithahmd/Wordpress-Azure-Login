@@ -35,6 +35,13 @@ class WpAzureLogin {
 	 */
 	public $azure_service;
 
+	/**
+	 * Whether to disable password login or not
+	 *
+	 * @var bool
+	 */
+	private $disable_password_login = false;
+
 
 	/**
 	 * Constructor of the WpAzureLogin class
@@ -52,8 +59,8 @@ class WpAzureLogin {
 		$diabled_password_login = get_option( 'wal_disable_password_login' );
 		$redirect_uri           = get_option( 'wal_redirect_url_value' );
 		if ( 'yes' === $diabled_password_login ) {
-			add_action( 'login_head', array( $this, 'hide_login_fields' ) );
 			add_action( 'login_init', array( $this, 'wal_disable_password_login' ) );
+			$this->disable_password_login = true;
 		}
 		if ( 'database' === $value_selctor ) {
 			$client_id     = get_option( 'wal_client_id_value' );
@@ -266,6 +273,7 @@ class WpAzureLogin {
 	 * @return string
 	 */
 	public function wal_login_button_callback() {
+		wp_enqueue_style( 'login-button-style', WP_AZURE_LOGIN_URL . 'assets/css/shortcode-style.css', array(), WP_AZURE_LOGIN_VERSION );
 		$url = $this->azure_service->get_auth_url();
 		ob_start();
 		include WP_AZURE_LOGIN_DIR . '/templates/azure-login-button.php';
@@ -273,12 +281,18 @@ class WpAzureLogin {
 	}
 
 	/**
-	 * Adds the Azure login button to the WordPress login form.
+	 * Adds Azure login fields to the login form.
 	 *
-	 * @since 1.0.0
+	 * This function outputs the Azure login button using a shortcode.
+	 * If password login is disabled, it hides the default WordPress login fields.
+	 *
+	 * @return void
 	 */
 	public function azure_add_login_fields() {
 		echo do_shortcode( '[wal_login_button]' );
+		if ( $this->disable_password_login ) {
+			$this->hide_login_fields();
+		}
 	}
 
 	/**
@@ -287,12 +301,11 @@ class WpAzureLogin {
 	 * @since 1.0.0
 	 */
 	public function hide_login_fields() {
-		echo '<style type="text/css">
-				#loginform #user_login,
+		$css = '#loginform #user_login,
 				#loginform #user_pass, #loginform p, .user-pass-wrap, p#nav  {
 						display: none;
-				}
-		</style>';
+				}';
+		wp_add_inline_style( 'login-button-style', $css );
 	}
 
 	/**

@@ -77,6 +77,7 @@ if ( ! class_exists( 'settingspage' ) ) :
 		private function init() {
 			add_action( 'admin_menu', array( $this, 'add_menu' ), 20 );
 			add_action( 'admin_init', array( $this, 'settings_init' ) );
+			add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_script' ) );
 		}
 
 		/**
@@ -88,6 +89,37 @@ if ( ! class_exists( 'settingspage' ) ) :
 			add_submenu_page( $this->page_data['parent_slug'], $this->page_data['page_title'], $this->page_data['menu_title'], $this->page_data['capability'], $this->page_data['slug'], array( $this, 'settings_page_view' ) );
 		}
 
+
+		/**
+		 * Enqueues the admin script for the settings page.
+		 *
+		 * This script is responsible for handling the settings page JavaScript functionality.
+		 * It is enqueued in the footer of the admin page for the plugin.
+		 */
+		public function enqueue_admin_script() {
+			wp_enqueue_script( 'wal-settings', WP_AZURE_LOGIN_URL . '/assets/js/settings.js', array(), WP_AZURE_LOGIN_VERSION, true );
+		}
+
+		/**
+		 * Adds an inline script to the page to toggle the conditional fields based on the value of the radio buttons.
+		 *
+		 * This function is called by the init method. It loops through the $display_if_data property and adds an event listener to each radio button.
+		 * When a radio button is changed, it calls the toggleConditionalFields function to show or hide the conditional fields based on the radio button's value.
+		 *
+		 * @return void
+		 */
+		private function add_inline_script() {
+			if ( count( $this->display_if_data ) > 0 ) {
+				$script = "document.addEventListener('DOMContentLoaded', function() {";
+				foreach ( $this->display_if_data as $radio => $fields ) {
+					$script .= "document.querySelectorAll('input[name=\"{$radio}\"]').forEach((radio) => {";
+					$script .= "radio.addEventListener('change', function(){ toggleConditionalFields(radio.name, JSON.parse('" . wp_json_encode( $fields ) . "')); });";
+					$script .= '});';
+				}
+				$script .= '});';
+				wp_add_inline_script( 'wal-settings', $script );
+			}
+		}
 
 		/**
 		 * Renders the settings page.
@@ -113,31 +145,6 @@ if ( ! class_exists( 'settingspage' ) ) :
 						?>
 					</form>
 				</div>
-				<script type="text/javascript">
-				document.addEventListener('DOMContentLoaded', function() {
-					function toggleConditionalFields( radioFieldName, fields) {
-						const selectedValue = document.querySelector('input[name="'+radioFieldName+'"]:checked').value;
-						fields.forEach((fieldData) => {
-							const field = document.querySelector('input[name="'+fieldData[0]+'"]').closest('tr');
-							if (selectedValue === fieldData[1]) {
-								field.style.display = '';
-							}
-							else {
-								field.style.display = 'none';
-							}
-						});
-					}
-					<?php
-					foreach ( $this->display_if_data as $radio => $fields ) {
-						?>
-						document.querySelectorAll('input[name="<?php echo esc_attr( $radio ); ?>"]').forEach((radio) => {
-							radio.addEventListener('change', function(){ toggleConditionalFields(radio.name, JSON.parse('<?php echo wp_json_encode( $fields ); ?>')); } );
-						});
-						<?php
-					}
-					?>
-				});
-				</script>
 			<?php
 		}
 
@@ -229,6 +236,7 @@ if ( ! class_exists( 'settingspage' ) ) :
 				}
 				echo '</tbody></table>';
 			}
+			$this->add_inline_script();
 		}
 	}
 endif;
