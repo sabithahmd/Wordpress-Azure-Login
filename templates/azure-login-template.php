@@ -10,6 +10,10 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // including the required files.
 require_once WP_AZURE_LOGIN_DIR . '/wp_azure_login.php';
 

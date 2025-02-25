@@ -13,6 +13,10 @@
  * Version: 1.0.5
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 // including the required files.
 require_once __DIR__ . '/classes/class-wpazurelogin.php';
 require_once __DIR__ . '/classes/class-walazureservice.php';
