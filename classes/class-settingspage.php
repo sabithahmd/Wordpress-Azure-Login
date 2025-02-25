@@ -241,7 +241,7 @@ if ( ! class_exists( 'settingspage' ) ) :
 		private function render_settings_fields() {
 			foreach ( $this->page_data['sections'] as $section ) {
 				echo '<h2>' . esc_html( $section['title'] ) . '</h2>';
-				echo '<p>' . $section['description'] . '</p>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+				echo '<p>' . esc_html( $section['description'] ) . '</p>';
 				echo '<table class="form-table" role="presentation"><tbody>';
 				foreach ( $section['fields'] as $field ) {
 					echo '<tr style="' . ( esc_attr( $this->display_if_callback( $field ) ) ) . '"><th scope="row">' . esc_html( $field['label'] ) . '</th><td>';
