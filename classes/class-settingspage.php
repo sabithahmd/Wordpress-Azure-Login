@@ -167,14 +167,16 @@ if ( ! class_exists( 'settingspage' ) ) :
 					$this->page_data['slug']
 				);
 				foreach ( $section['fields'] as $field ) {
-					register_setting(
-						$this->page_data['slug'],
-						$field['name'],
-						array(
-							'type'              => $field['value_type'],
-							'sanitize_callback' => $field['sanitize_callback'],
-						)
-					);
+					if ( 'p' !== $field['type'] ) {
+						register_setting(
+							$this->page_data['slug'],
+							$field['name'],
+							array(
+								'type'              => $field['value_type'],
+								'sanitize_callback' => $field['sanitize_callback'],
+							)
+						);
+					}
 				}
 			}
 		}
@@ -195,6 +197,11 @@ if ( ! class_exists( 'settingspage' ) ) :
 						echo '<input type="radio" name="' . esc_attr( $field['name'] ) . '" value="' . esc_attr( $value ) . '" ' . checked( get_option( $field['name'], isset( $field['default'] ) && $field['default'] === $value ? $value : '' ), $value, false ) . '>';
 						echo '<label for="' . esc_attr( $field['name'] ) . '">' . esc_html( $label ) . '</label><br>';
 					}
+					break;
+
+				case 'p':
+					echo '<p name="' . esc_attr( $field['name'] ) . '">' . esc_html( $field['content'] ) . '</p>';
+					break;
 			}
 			if ( isset( $field['display_if'] ) ) {
 				$this->display_if_data[ $field['display_if'][0] ][] = array( $field['name'], $field['display_if'][1] );

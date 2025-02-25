@@ -112,7 +112,7 @@ class WpAzureLogin {
 				array(
 					'slug'        => 'wal_config_settings_section',
 					'title'       => 'Azure Configuration',
-					'description' => 'Enter your azure app credentials here.<br>use ENV variables WAL_CLIENT_ID, WAL_CLIENT_SECRET, WAL_TENANT_ID when storage is choosen as Environment',
+					'description' => 'Enter your azure app credentials here.',
 					'fields'      => array(
 						array(
 							'name'              => 'azure_config_option_selector',
@@ -125,6 +125,13 @@ class WpAzureLogin {
 							'default'           => 'database',
 							'value_type'        => 'string',
 							'sanitize_callback' => 'sanitize_text_field',
+						),
+						array(
+							'name'       => 'env_instruction',
+							'label'      => '',
+							'type'       => 'p',
+							'content'    => 'Use env variables WAL_CLIENT_ID, WAL_CLIENT_SECRET, WAL_TENANT_ID for Client ID, Client Secret, Tenant ID respectively.',
+							'display_if' => array( 'azure_config_option_selector', 'environment', true ),
 						),
 						array(
 							'name'              => 'wal_client_id_value',
