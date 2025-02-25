@@ -167,7 +167,14 @@ if ( ! class_exists( 'settingspage' ) ) :
 					$this->page_data['slug']
 				);
 				foreach ( $section['fields'] as $field ) {
-					register_setting( $this->page_data['slug'], $field['name'] );
+					register_setting(
+						$this->page_data['slug'],
+						$field['name'],
+						array(
+							'type'              => $field['value_type'],
+							'sanitize_callback' => $field['sanitize_callback'],
+						)
+					);
 				}
 			}
 		}
