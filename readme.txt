@@ -32,6 +32,36 @@ Key Features
 = How do I get Azure AD credentials? =
 You need to register an app in the Azure Portal.
 
+== External Services ==
+
+This plugin connects to Microsoft Azure services to facilitate authentication and user data retrieval. The integration enables seamless access to Microsoft accounts and related data for the intended functionality of the plugin.
+
+Services Used
+
+1. Microsoft Identity Platform (OAuth 2.0 Authentication)
+
+Purpose: This service is used for authentication and authorization, allowing users to sign in using their Microsoft accounts.
+Data Sent: The plugin sends authentication requests to Microsoft, including tenant ID and authorization parameters, when a user attempts to log in.
+Endpoints Used:
+https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/authorize (authorization request)
+https://login.microsoftonline.com/{tenant_id}/oauth2/v2.0/token (token exchange)
+
+Terms & Privacy:
+<a target="_blank" href="https://www.microsoft.com/en-us/servicesagreement/">Microsoft Terms of Use</a>
+<a target="_blank" href="https://privacy.microsoft.com/en-us/privacystatement">Microsoft Privacy Policy</a>
+
+2. Microsoft Graph API
+
+Purpose: This API is used to fetch user profile information after authentication.
+Data Sent: The plugin sends requests to Microsoft Graph API with an authorization token to retrieve user details (such as name and email).
+Endpoint Used:
+https://graph.microsoft.com/v1.0/me (retrieves authenticated user information)
+
+Terms & Privacy:
+<a target="_blank" href="https://developer.microsoft.com/en-us/graph/terms-of-use">Microsoft Graph API Terms</a>
+
+By using this plugin, users acknowledge that authentication and data retrieval depend on Microsoft services, and their data is subject to Microsoft's terms and privacy policies.
+
 == Changelog ==
 
 = 1.0.0 =
