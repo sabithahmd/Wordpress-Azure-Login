@@ -9,7 +9,7 @@
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  *
  * @package login-azure
- * Version: 1.0.5
+ * Version: 1.0.6
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
