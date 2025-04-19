@@ -1,10 +1,10 @@
-# WordPress Login with Azure Plugin
+# WordPress Login with Microsoft Entra ID
 
-A lightweight WordPress plugin that enables secure Single Sign-On (SSO) with Azure Active Directory. Users can log in to your WordPress site using their Azure AD credentials for seamless and secure authentication.
+A lightweight WordPress plugin that enables secure Single Sign-On (SSO) with Microsoft Entra ID. Users can log in to your WordPress site using their Microsoft Entra ID credentials for seamless and secure authentication.
 
 ## Features
 
-- Azure AD Single Sign-On (SSO)
+- Microsoft Entra ID Single Sign-On (SSO)
 - Keep your credentials securely in ENV
 - Option to disable password login
 - Easy configuration through WordPress admin
@@ -14,7 +14,7 @@ A lightweight WordPress plugin that enables secure Single Sign-On (SSO) with Azu
 
 1. Download the plugin files and upload them to the `/wp-content/plugins/` directory.
 2. Activate the plugin through the WordPress admin under **Plugins**.
-3. Configure the Azure AD settings in the Azure Configuration page under settings menu.
+3. Configure the App registration credentials in the Microsoft Entra ID configuration page under settings menu.
 
 ## Configuration
 
@@ -25,11 +25,6 @@ A lightweight WordPress plugin that enables secure Single Sign-On (SSO) with Azu
    - **Tenant ID**
 3. Enter these details in the Azure Configuration page under settings menu.
 
-## Requirements
-
-- WordPress 5.5 or higher
-- PHP 7.4 or higher
-- Azure Active Directory account
 
 ## Contribution
 
@@ -41,4 +36,4 @@ This plugin is licensed under the GPLv2.
 
 ---
 
-*Simplify your WordPress login process with secure Azure AD integration.*
+*Simplify your WordPress login process with secure Microsoft Entra ID integration.*

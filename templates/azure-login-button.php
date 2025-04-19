@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 						<rect x="11" y="11" width="9" height="9" fill="#ffb900" />
 					</svg>
 				</div>
-				<div class="wal-label">Sign in with Azure</div>
+				<div class="wal-label">Sign in with Microsoft</div>
 			</a>
 		</div>
 	</div>

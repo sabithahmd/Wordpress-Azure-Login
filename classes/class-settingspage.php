@@ -97,7 +97,7 @@ if ( ! class_exists( 'settingspage' ) ) :
 		 * It is enqueued in the footer of the admin page for the plugin.
 		 */
 		public function enqueue_admin_script() {
-			wp_enqueue_script( 'wal-settings', WP_AZURE_LOGIN_URL . '/assets/js/settings.js', array(), WP_AZURE_LOGIN_VERSION, true );
+			wp_enqueue_script( 'loginwiaz-settings', LOGIN_WITH_AZURE_URL . '/assets/js/settings.js', array(), LOGIN_WITH_AZURE_VERSION, true );
 		}
 
 		/**
@@ -117,7 +117,7 @@ if ( ! class_exists( 'settingspage' ) ) :
 					$script .= '});';
 				}
 				$script .= '});';
-				wp_add_inline_script( 'wal-settings', $script );
+				wp_add_inline_script( 'loginwiaz-settings', $script );
 			}
 		}
 
@@ -172,8 +172,8 @@ if ( ! class_exists( 'settingspage' ) ) :
 							$this->page_data['slug'],
 							$field['name'],
 							array(
-								'type'              => $field['value_type'],
-								'sanitize_callback' => $field['sanitize_callback'],
+								'type'              => sanitize_text_field( $field['value_type'] ),
+								'sanitize_callback' => sanitize_text_field( $field['sanitize_callback'] ),
 							)
 						);
 					}

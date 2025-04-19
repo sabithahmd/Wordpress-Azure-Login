@@ -1,8 +1,8 @@
 <?php
 /**
- * WalAzureService class file
+ * LoginWiAzAzureService class file
  *
- * File containing the WalAzureService class.
+ * File containing the LoginWiAzAzureService class.
  *
  * @package    login-azure
  * @author     Sabith Ahammad <sa.codinglife@gmail.com>
@@ -11,18 +11,18 @@
  */
 
 /**
- * WalAzureService class
+ * LoginWiAzAzureService class
  *
  * This class contains functionalities for
  * connecting with azure services for the login.
  *
  * @author Sabith Ahammad
  */
-class WalAzureService {
+class LoginWiAzAzureService {
 	/**
-	 * Static instance of the WalAzureService class
+	 * Static instance of the LoginWiAzAzureService class
 	 *
-	 * @var WalAzureService
+	 * @var LoginWiAzAzureService
 	 */
 	private static $instance;
 
@@ -55,14 +55,14 @@ class WalAzureService {
 	public $tenant_id;
 
 	/**
-	 * Get the static instance of the WalAzureService class
+	 * Get the static instance of the LoginWiAzAzureService class
 	 *
 	 * @param string $client_id     Azure AD Application client ID.
 	 * @param string $redirect_uri  Azure AD Application redirect URI.
 	 * @param string $client_secret Azure AD Application client secret.
 	 * @param string $tenant_id     Azure AD Tenant ID.
 	 *
-	 * @return WalAzureService
+	 * @return LoginWiAzAzureService
 	 */
 	public static function get_instance( $client_id, $redirect_uri, $client_secret, $tenant_id ) {
 		if ( null === self::$instance ) {
